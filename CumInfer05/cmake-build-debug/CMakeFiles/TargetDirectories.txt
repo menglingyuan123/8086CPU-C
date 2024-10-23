@@ -1,0 +1,3 @@
+C:/Amly/AAAA/CumInfer05/cmake-build-debug/CMakeFiles/CumInfer05.dir
+C:/Amly/AAAA/CumInfer05/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Amly/AAAA/CumInfer05/cmake-build-debug/CMakeFiles/rebuild_cache.dir
