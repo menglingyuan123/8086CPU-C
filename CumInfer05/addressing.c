@@ -1,5 +1,5 @@
 //
-// Created by 孟令圆 on 2024/10/24.
+// Created by 吕思梦 孙嘉特 张如意 on 2024/10/24.
 //
 #include "cpu.h"
 #include <stdio.h>
@@ -10,7 +10,7 @@
 #include "instructions.h"
 
 
-
+//吕思梦，孙嘉特
 // 辅助函数：检查字符串是否以指定后缀结尾
 bool endsWith(const char* str, const char* suffix) {
     size_t strLen = strlen(str);
@@ -108,7 +108,7 @@ uint16_t  identifyAM(const char* src) {
 
 
 
-
+// 张如意
 void getString(const char* array, char* resultBuffer, size_t bufferSize) {
     int len = strlen(array);
     char str[50];

@@ -1,3 +1,5 @@
+// Created by 吕思梦，孙嘉特，张如意，孟令圆 on 2024/10/15.
+
 #include "cpu.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,7 +23,7 @@ void execute_inc(const char* reg);
 void execute_stc();
 void execute_clc();
 void execute_jmp();
-void execute_int();
+void execute_int(const char* reg);
 void CMPSB();
 void MOVSB();
 
@@ -98,7 +100,7 @@ void decode_and_execute(const char* instruction) {
         return;
     }
 
-    // 解析和拆分指令（仅适用于代码段内的指令）
+    // 解析和拆分指令（仅适用于代码段内的指令） 参考ChatGPT分解指令
     char op[10] = {0}, arg1[10] = {0}, arg2[10] = {0};
     char* token = strtok((char*)instruction, " ,");
     if (token) strncpy(op, token, sizeof(op) - 1);
@@ -407,7 +409,7 @@ void execute_pop(const char* reg) {
     printf("执行后状态:\n");
     display_cpu_state();
 }
-
+//张如意
 void execute_or(const char* dest, const char* src) {
     uint16_t* dest_reg = register_addressing(dest);
     uint16_t src_value = 0;
@@ -481,6 +483,7 @@ void execute_jmp(){
     printf("执行后状态:\n");
     display_cpu_state();
 }
+//吕思梦
 void execute_int(const char *dest) {
     if (dest==0x21)
     {
@@ -543,6 +546,7 @@ void CMPSB() {
     *dest_reg2 = *dest_reg1 + 1;
 //如果两个字节相等，则ZF被设置为1；否则，ZF被设置为0。
 }
+//孙嘉特
 void execute_and(const char* dest, const char* src) {
     uint16_t* dest_reg = register_addressing(dest);
     uint16_t src_value = 0;
@@ -589,7 +593,7 @@ void execute_xor(const char* dest, const char* src) {
     printf("执行后状态:\n");
     //display_cpu_state();
 }
-
+//孟令圆
 // 查找符号表中的符号地址
 uint32_t get_symbol_address(const char* symbol_name) {
     for (int i = 0; i < symbol_count; i++) {

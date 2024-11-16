@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 Registers cpu;
+Bus cpu_bus;
 uint8_t memory[0x100000];  // 1MB 内存
 char instruction_memory[MAX_INSTRUCTIONS][50];
 int instruction_count = 0;
@@ -12,12 +13,16 @@ static uint16_t data_offset = 0;  // 数据段偏移量
 
 void initialize_cpu() {
     memset(&cpu, 0, sizeof(Registers));  // 初始化寄存器
+    memset(&cpu_bus,0,sizeof(Bus));
     memset(memory, 0, sizeof(memory));   // 初始化内存
     cpu.SP = 0xFFFE;  // 栈指针初始化为内存顶部
     cpu.IP = 0;  // 从指令内存的起始地址开始执行
     strcpy(cpu.IR, "");  // 初始化 IR 寄存器为空
     cpu.DS = 0;//数据段默认是0
     cpu.CS = 128;//代码段默认是128
+    cpu_bus.address_bus = 0;
+    cpu_bus.control_bus = 0;
+    cpu_bus.data_bus = 0;
 }
 void add_symbol(const char* name, uint32_t address, uint16_t value) {
     if (symbol_count < MAX_SYMBOLS) {

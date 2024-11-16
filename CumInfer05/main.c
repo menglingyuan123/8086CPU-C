@@ -19,7 +19,7 @@ int main() {
         fgets(instruction, sizeof(instruction), stdin);  // 获取用户输入
         instruction[strcspn(instruction, "\n")] = '\0';  // 去除换行符
 
-        if (strcmp(instruction, "exit") == 0) {
+        if (strcmp(instruction, "HIT") == 0) {
             printf("退出模拟器。\n");
             break;
         }
