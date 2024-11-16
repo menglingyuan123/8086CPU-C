@@ -153,5 +153,5 @@ HIT
 在这里，数据段没用进行任何定义。只是进行简单的代码运行测试。
 
 ## 测试结果
+![Homework01](https://github.com/user-attachments/assets/386977ae-e12a-412d-9f14-6e6ae47acbda)
 
-![](F:\CumInfer\Homework01.png)
